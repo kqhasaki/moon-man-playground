@@ -1,14 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
-import LocationGallery from "./pages/LocationGallery";
-import CharacterGallery from "./pages/CharacterGallery";
+import LocationGallery from "./pages/rick-and-morty/LocationGallery";
+import CharacterGallery from "./pages/rick-and-morty/CharacterGallery";
+import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProvider";
 
 export default createBrowserRouter([
   {
     path: "/",
-    element: <CharacterGallery />,
+    element: (
+      <RickAndMortyThemeProvider>
+        <CharacterGallery />
+      </RickAndMortyThemeProvider>
+    ),
   },
   {
     path: "/locations",
-    element: <LocationGallery />,
+    element: (
+      <RickAndMortyThemeProvider>
+        <LocationGallery />
+      </RickAndMortyThemeProvider>
+    ),
   },
 ]);
