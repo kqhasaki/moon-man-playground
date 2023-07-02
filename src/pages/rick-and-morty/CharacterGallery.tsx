@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState, useCallback } from "react";
+import { ReactElement, useEffect, useState, useCallback, useMemo } from "react";
 import {
   getPaginatedCharacters,
   Character,
@@ -7,6 +7,7 @@ import { PaginatedResult } from "../../api/rick-and-morty/types";
 import { CharacterCard } from "../../components/rick-and-morty/CharacterCard";
 import { makeStyles } from "../../components/rick-and-morty/theme";
 import { Paginator } from "@kqhasaki/birdperson";
+import { useSearchParams } from "react-router-dom";
 
 const useStyles = makeStyles()(() => ({
   mainWrapper: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles()(() => ({
     width: "100%",
     overflowX: "hidden",
     overflowY: "auto",
+    padding: 50,
   },
   cardWrapper: {
     display: "flex",
@@ -22,7 +24,7 @@ const useStyles = makeStyles()(() => ({
     padding: "40px 30px",
     alignItems: "center",
     justifyContent: "center",
-    maxWidth: 1920,
+    maxWidth: 2560,
     margin: "auto",
   },
 }));
@@ -31,7 +33,16 @@ export default function CharacterGallery(): ReactElement {
   const { classes } = useStyles();
   const [paginatedCharacters, setPagninatedCharacters] =
     useState<PaginatedResult<Character>>();
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const currentPage = useMemo(() => {
+    const page = searchParams.get("page");
+    if (page == undefined || isNaN(parseInt(page))) {
+      return 1;
+    } else {
+      return parseInt(page);
+    }
+  }, [searchParams]);
 
   const fetchData = useCallback(async () => {
     if (currentPage == undefined) {
@@ -42,7 +53,7 @@ export default function CharacterGallery(): ReactElement {
   }, [currentPage]);
 
   const changeCurrentPage = useCallback((page: number) => {
-    setCurrentPage(page);
+    setSearchParams({ page: page.toString() });
   }, []);
 
   useEffect(() => {

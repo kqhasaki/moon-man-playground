@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import LocationGallery from "./pages/rick-and-morty/LocationGallery";
 import CharacterGallery from "./pages/rick-and-morty/CharacterGallery";
 import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProvider";
@@ -6,6 +6,10 @@ import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProv
 export default createBrowserRouter([
   {
     path: "/",
+    element: <Navigate to="/characters" replace />,
+  },
+  {
+    path: "/characters",
     element: (
       <RickAndMortyThemeProvider>
         <CharacterGallery />

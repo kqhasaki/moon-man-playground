@@ -5,7 +5,7 @@ import { makeStyles } from "../theme";
 const useStyles = makeStyles()((theme) => ({
   cardWrapper: {
     borderRadius: 10,
-    width: 600,
+    width: 620,
     height: 240,
     background: theme.palette.background.paper,
     overflow: "hidden",
@@ -13,6 +13,8 @@ const useStyles = makeStyles()((theme) => ({
   },
   descWrapper: {
     padding: 16,
+    overflowX: "hidden",
+    overflowY: "auto",
   },
   imageWrapper: {
     height: "100%",
