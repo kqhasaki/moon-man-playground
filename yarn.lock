@@ -251,6 +251,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kqhasaki/birdperson@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "@kqhasaki/birdperson@npm:0.1.1"
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: 7207f59cd89365c61013d640c849ce69404055bfb1372972b38a96c461d5efe7a5912d35acf28af169fb4b5018a975d2e105de65e88c5829ffa800ab691f77db
+  languageName: node
+  linkType: hard
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4"
@@ -4653,6 +4663,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moon-man-playground@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "moon-man-playground@workspace:."
+  dependencies:
+    "@emotion/react": ^11.11.1
+    "@kqhasaki/birdperson": ^0.1.0
+    "@types/node": ^20.3.2
+    "@types/react": ^18.2.14
+    "@types/react-dom": ^18.2.6
+    "@types/webpack": ^5.28.1
+    "@webpack-cli/generators": ^3.0.7
+    autoprefixer: ^10.4.14
+    axios: ^1.4.0
+    css-loader: ^6.8.1
+    html-webpack-plugin: ^5.5.3
+    less: ^4.1.3
+    less-loader: ^11.1.3
+    mini-css-extract-plugin: ^2.7.6
+    postcss: ^8.4.24
+    postcss-loader: ^7.3.3
+    prettier: ^2.8.8
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-router-dom: ^6.14.0
+    style-loader: ^3.3.3
+    ts-loader: ^9.4.4
+    tss-react: ^4.8.6
+    typescript: ^5.1.6
+    webpack: ^5.88.1
+    webpack-cli: ^5.1.4
+    webpack-dev-server: ^4.15.1
+  languageName: unknown
+  linkType: soft
+
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -4705,39 +4749,6 @@ __metadata:
   checksum: ff48d251fc3f827e5b1206cda0ffdaec885e56057ee86a3155e1951bc940fd5f33531774b1cc8414d7668c10a8907f863f6561875ee6e8768931a62121a531a1
   languageName: node
   linkType: hard
-
-"my-webpack-project@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "my-webpack-project@workspace:."
-  dependencies:
-    "@emotion/react": ^11.11.1
-    "@types/node": ^20.3.2
-    "@types/react": ^18.2.14
-    "@types/react-dom": ^18.2.6
-    "@types/webpack": ^5.28.1
-    "@webpack-cli/generators": ^3.0.7
-    autoprefixer: ^10.4.14
-    axios: ^1.4.0
-    css-loader: ^6.8.1
-    html-webpack-plugin: ^5.5.3
-    less: ^4.1.3
-    less-loader: ^11.1.3
-    mini-css-extract-plugin: ^2.7.6
-    postcss: ^8.4.24
-    postcss-loader: ^7.3.3
-    prettier: ^2.8.8
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-router-dom: ^6.14.0
-    style-loader: ^3.3.3
-    ts-loader: ^9.4.4
-    tss-react: ^4.8.6
-    typescript: ^5.1.6
-    webpack: ^5.88.1
-    webpack-cli: ^5.1.4
-    webpack-dev-server: ^4.15.1
-  languageName: unknown
-  linkType: soft
 
 "nanoid@npm:^3.3.6":
   version: 3.3.6

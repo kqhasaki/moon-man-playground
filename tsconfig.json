@@ -6,7 +6,6 @@
     "module": "ES2020",
     "target": "es6",
     "moduleResolution": "Node",
-    "noUnusedLocals": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

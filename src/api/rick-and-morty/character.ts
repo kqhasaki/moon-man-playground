@@ -6,12 +6,18 @@ import { urlcat } from "../utils";
 export interface Character {
   id: number;
   name: string;
-  status: string;
+  status: "Alive" | "Dead" | "unknown";
   species: string;
   type: string;
   gender: string;
-  origin: object;
-  location: object;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
   image: string;
   episode: string[];
   url: string;

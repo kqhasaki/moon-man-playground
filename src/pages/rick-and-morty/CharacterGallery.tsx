@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState, useCallback } from "react";
 import {
   getPaginatedCharacters,
   Character,
@@ -6,8 +6,9 @@ import {
 import { PaginatedResult } from "../../api/rick-and-morty/types";
 import { CharacterCard } from "../../components/rick-and-morty/CharacterCard";
 import { makeStyles } from "../../components/rick-and-morty/theme";
+import { Paginator } from "@kqhasaki/birdperson";
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(() => ({
   mainWrapper: {
     height: "100%",
     width: "100%",
@@ -30,21 +31,39 @@ export default function CharacterGallery(): ReactElement {
   const { classes } = useStyles();
   const [paginatedCharacters, setPagninatedCharacters] =
     useState<PaginatedResult<Character>>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const fetchData = useCallback(async () => {
+    if (currentPage == undefined) {
+      return;
+    }
+    const data = await getPaginatedCharacters(currentPage);
+    setPagninatedCharacters(data);
+  }, [currentPage]);
+
+  const changeCurrentPage = useCallback((page: number) => {
+    setCurrentPage(page);
+  }, []);
 
   useEffect(() => {
-    void getPaginatedCharacters(10).then((data) =>
-      setPagninatedCharacters(data)
-    );
-  }, []);
+    void fetchData();
+  }, [fetchData]);
 
   return (
     <main className={classes.mainWrapper}>
       {paginatedCharacters ? (
-        <div className={classes.cardWrapper}>
-          {paginatedCharacters.results.map((character) => (
-            <CharacterCard key={character.id} character={character} />
-          ))}
-        </div>
+        <>
+          <div className={classes.cardWrapper}>
+            {paginatedCharacters.results.map((character) => (
+              <CharacterCard key={character.id} character={character} />
+            ))}
+          </div>
+          <Paginator
+            total={paginatedCharacters.info.pages}
+            current={currentPage}
+            onChangePage={changeCurrentPage}
+          />
+        </>
       ) : (
         "loading..."
       )}
