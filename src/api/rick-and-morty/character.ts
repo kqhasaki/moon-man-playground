@@ -1,7 +1,5 @@
-import { get } from "../utils";
-import { PaginatedResult } from "./types";
-import { BASE_URL } from "./types";
-import { urlcat } from "../utils";
+import { get, urlcat } from "../utils";
+import { PaginatedResult, BASE_URL } from "./types";
 
 export interface Character {
   id: number;

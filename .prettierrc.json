@@ -5,5 +5,8 @@
   "singleQuote": false,
   "tabWidth": 2,
   "useTabs": false,
-  "printWidth": 80
+  "printWidth": 80,
+  "importOrder": ["^components/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

@@ -1,13 +1,14 @@
-import { ReactElement, useEffect, useState, useCallback, useMemo } from "react";
+import { Paginator } from "@kqhasaki/birdperson";
+import { ReactElement, useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import {
-  getPaginatedCharacters,
   Character,
+  getPaginatedCharacters,
 } from "../../api/rick-and-morty/character";
 import { PaginatedResult } from "../../api/rick-and-morty/types";
 import { CharacterCard } from "../../components/rick-and-morty/CharacterCard";
 import { makeStyles } from "../../components/rick-and-morty/theme";
-import { Paginator } from "@kqhasaki/birdperson";
-import { useSearchParams } from "react-router-dom";
 
 const useStyles = makeStyles()(() => ({
   mainWrapper: {
