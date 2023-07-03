@@ -8,7 +8,7 @@
   "packageManager": "yarn@3.3.1",
   "dependencies": {
     "@emotion/react": "^11.11.1",
-    "@kqhasaki/birdperson": "^0.1.0",
+    "@kqhasaki/birdperson": "^0.1.2",
     "axios": "^1.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -1,6 +1,7 @@
 import { ReactElement, ReactNode } from "react";
 import { Character } from "../../../api/rick-and-morty/character";
 import { makeStyles } from "../theme";
+import { Image } from "@kqhasaki/birdperson";
 
 const useStyles = makeStyles()((theme) => ({
   cardWrapper: {
@@ -15,13 +16,6 @@ const useStyles = makeStyles()((theme) => ({
     padding: 16,
     overflowX: "hidden",
     overflowY: "auto",
-  },
-  imageWrapper: {
-    height: "100%",
-    aspectRatio: 1,
-    "& > img": {
-      height: "100%",
-    },
   },
   characterName: {
     fontSize: 25,
@@ -67,9 +61,11 @@ export function CharacterCard({
 
   return (
     <article className={classes.cardWrapper}>
-      <div className={classes.imageWrapper}>
-        <img src={character.image} alt={character.image} />
-      </div>
+      <Image
+        src={character.image}
+        alt={character.image}
+        style={{ height: "100%", width: "none", aspectRatio: "1 / 1" }}
+      />
       <div className={classes.descWrapper}>
         <div className={classes.characterName}>{character.name}</div>
         <div className={classes.characterStatus}>

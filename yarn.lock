@@ -251,13 +251,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kqhasaki/birdperson@npm:^0.1.0":
-  version: 0.1.1
-  resolution: "@kqhasaki/birdperson@npm:0.1.1"
+"@kqhasaki/birdperson@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@kqhasaki/birdperson@npm:0.1.2"
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 7207f59cd89365c61013d640c849ce69404055bfb1372972b38a96c461d5efe7a5912d35acf28af169fb4b5018a975d2e105de65e88c5829ffa800ab691f77db
+  checksum: f44d81d4a924d6217606722a237f96f80cb2ba8995e34274885ea490fdd1da13711ea3cdb50ec80aa7cdc94787f612d89b42482503ee526b3de9c91cb2946cdf
   languageName: node
   linkType: hard
 
@@ -4668,7 +4668,7 @@ __metadata:
   resolution: "moon-man-playground@workspace:."
   dependencies:
     "@emotion/react": ^11.11.1
-    "@kqhasaki/birdperson": ^0.1.0
+    "@kqhasaki/birdperson": ^0.1.2
     "@types/node": ^20.3.2
     "@types/react": ^18.2.14
     "@types/react-dom": ^18.2.6
