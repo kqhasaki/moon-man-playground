@@ -43,5 +43,8 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "dev": "webpack serve"
+  },
+  "resolutions": {
+    "@kqhasaki/birdperson": "portal:/Users/louisk/code/birdperson"
   }
 }

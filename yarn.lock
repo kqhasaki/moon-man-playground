@@ -382,15 +382,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kqhasaki/birdperson@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@kqhasaki/birdperson@npm:0.1.2"
+"@kqhasaki/birdperson@portal:/Users/louisk/code/birdperson::locator=moon-man-playground%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@kqhasaki/birdperson@portal:/Users/louisk/code/birdperson::locator=moon-man-playground%40workspace%3A."
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: f44d81d4a924d6217606722a237f96f80cb2ba8995e34274885ea490fdd1da13711ea3cdb50ec80aa7cdc94787f612d89b42482503ee526b3de9c91cb2946cdf
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
