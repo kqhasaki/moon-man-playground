@@ -8,7 +8,7 @@
   "packageManager": "yarn@3.3.1",
   "dependencies": {
     "@emotion/react": "^11.11.1",
-    "@kqhasaki/birdperson": "^0.1.2",
+    "@kqhasaki/birdperson": "^0.1.3",
     "axios": "^1.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -43,8 +43,5 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "dev": "webpack serve"
-  },
-  "resolutions": {
-    "@kqhasaki/birdperson": "portal:/Users/louisk/code/birdperson"
   }
 }

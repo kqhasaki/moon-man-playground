@@ -1,7 +1,8 @@
+import { Image } from "@kqhasaki/birdperson";
 import { ReactElement, ReactNode } from "react";
+
 import { Character } from "../../../api/rick-and-morty/character";
 import { makeStyles } from "../theme";
-import { Image } from "@kqhasaki/birdperson";
 
 const useStyles = makeStyles()((theme) => ({
   cardWrapper: {
@@ -51,12 +52,11 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 type CharacterCardPropsType = {
-  character: Character;
+  data: Character;
 };
 
-export function CharacterCard({
-  character,
-}: CharacterCardPropsType): ReactElement {
+export function CharacterCard({ data }: CharacterCardPropsType): ReactElement {
+  const character = data;
   const { classes } = useStyles();
 
   return (

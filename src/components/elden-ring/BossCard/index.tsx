@@ -1,15 +1,16 @@
+import { Image } from "@kqhasaki/birdperson";
 import { ReactElement } from "react";
 
 import { Boss } from "../../../api/elden-ring/boss";
 
 type BossCardPropsType = {
-  boss: Boss;
+  data: Boss;
 };
-export function BossCard({ boss }: BossCardPropsType): ReactElement {
+export function BossCard({ data }: BossCardPropsType): ReactElement {
   return (
     <div>
-      <div>{boss.name}</div>
-      <img src={boss.image} alt={boss.image}></img>
+      <div>{data.name}</div>
+      <Image src={data.image} alt={data.image} />
     </div>
   );
 }

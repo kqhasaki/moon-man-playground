@@ -11,13 +11,10 @@ export interface Boss {
   healthPoints: string;
 }
 
-export async function getPaginatedBosses({
-  page = 1,
-  limit = 20,
-}: {
-  page?: number;
-  limit?: number;
-}): Promise<PaginatedResult<Boss>> {
+export async function getPaginatedBosses(
+  page: number,
+  pageSize: number = 20
+): Promise<PaginatedResult<Boss>> {
   return (
     await get(
       urlcat({
@@ -25,7 +22,7 @@ export async function getPaginatedBosses({
         relativeURL: "bosses",
         queryParams: {
           page,
-          limit,
+          limit: pageSize,
         },
       })
     )

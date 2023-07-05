@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProvider";
+import BossGallery from "./pages/elden-ring/BossGallery";
 import WeaponGallery from "./pages/elden-ring/WeaponGallery";
 import CharacterGallery from "./pages/rick-and-morty/CharacterGallery";
 import LocationGallery from "./pages/rick-and-morty/LocationGallery";
@@ -31,6 +32,14 @@ export default createBrowserRouter([
     element: (
       <RickAndMortyThemeProvider>
         <WeaponGallery />
+      </RickAndMortyThemeProvider>
+    ),
+  },
+  {
+    path: "/elden-ring/bosses",
+    element: (
+      <RickAndMortyThemeProvider>
+        <BossGallery />
       </RickAndMortyThemeProvider>
     ),
   },
