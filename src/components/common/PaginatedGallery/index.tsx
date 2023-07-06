@@ -57,6 +57,7 @@ export function PaginatedGallery<T, S>({
         minWidth: "500px",
         overflowY: "auto",
         overflowX: "hidden",
+        paddingBottom: "60px",
       }}
     >
       {paginatedData ? (

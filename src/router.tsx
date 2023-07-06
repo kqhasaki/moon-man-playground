@@ -1,5 +1,6 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
+import { EldenRingThemeProvider } from "./components/elden-ring/ThemeProvider";
 import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProvider";
 import BossGallery from "./pages/elden-ring/BossGallery";
 import WeaponGallery from "./pages/elden-ring/WeaponGallery";
@@ -30,17 +31,17 @@ export default createBrowserRouter([
   {
     path: "/elden-ring/weapons",
     element: (
-      <RickAndMortyThemeProvider>
+      <EldenRingThemeProvider>
         <WeaponGallery />
-      </RickAndMortyThemeProvider>
+      </EldenRingThemeProvider>
     ),
   },
   {
     path: "/elden-ring/bosses",
     element: (
-      <RickAndMortyThemeProvider>
+      <EldenRingThemeProvider>
         <BossGallery />
-      </RickAndMortyThemeProvider>
+      </EldenRingThemeProvider>
     ),
   },
 ]);
