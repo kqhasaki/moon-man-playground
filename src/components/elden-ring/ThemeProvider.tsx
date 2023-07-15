@@ -1,4 +1,5 @@
-import { ReactElement, ReactNode } from "react";
+import { setTheme } from "@kqhasaki/birdperson";
+import { ReactElement, ReactNode, useLayoutEffect } from "react";
 import { GlobalStyles } from "tss-react";
 
 import { useTheme } from "./theme";
@@ -9,6 +10,10 @@ export function EldenRingThemeProvider({
   children: ReactNode;
 }): ReactElement {
   const theme = useTheme();
+
+  useLayoutEffect(() => {
+    setTheme(useTheme);
+  }, []);
 
   return (
     <>

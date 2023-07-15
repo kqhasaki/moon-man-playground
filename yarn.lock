@@ -382,13 +382,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kqhasaki/birdperson@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "@kqhasaki/birdperson@npm:0.1.3"
+"@kqhasaki/birdperson@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@kqhasaki/birdperson@npm:0.1.4"
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: c771f2cea46c095153bbdb0788d1df3549395a4224f554e551942f31675b7e86fcb024c5004747b302de7133109e162b59f190103df12e55df521fe7e56f774f
+  checksum: 90392efa16b3f3db7e04645633570f87a0412492a53bc0c822428c1b935480eee20adafe188ebe48ed27823d4f91b3460c307e68f83b13c8121a729b213ce212
   languageName: node
   linkType: hard
 
@@ -4842,7 +4842,7 @@ __metadata:
   resolution: "moon-man-playground@workspace:."
   dependencies:
     "@emotion/react": ^11.11.1
-    "@kqhasaki/birdperson": ^0.1.3
+    "@kqhasaki/birdperson": ^0.1.4
     "@trivago/prettier-plugin-sort-imports": ^4.1.1
     "@types/node": ^20.3.2
     "@types/react": ^18.2.14
