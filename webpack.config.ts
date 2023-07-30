@@ -1,8 +1,9 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
-
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import { Configuration } from "webpack";
+import "webpack-dev-server";
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -10,7 +11,7 @@ const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
   : "style-loader";
 
-const config = {
+const config: Configuration = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -19,6 +20,9 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    historyApiFallback: {
+      index: "/",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -69,20 +73,13 @@ const config = {
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
-  devServer: {
-    historyApiFallback: {
-      index: "/",
-    },
-  },
 };
 
-module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
+if (isProduction) {
+  config.mode = "production";
+  config.plugins?.push(new MiniCssExtractPlugin());
+} else {
+  config.mode = "development";
+}
 
-    config.plugins.push(new MiniCssExtractPlugin());
-  } else {
-    config.mode = "development";
-  }
-  return config;
-};
+export default config;

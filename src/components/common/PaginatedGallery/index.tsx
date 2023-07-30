@@ -31,22 +31,25 @@ export function PaginatedGallery<T, S>({
     } else {
       return parseInt(page);
     }
-  }, [searchParams]);
+  }, [searchParams, initialPage]);
 
   const fetchData = useCallback(async () => {
     const data = await getPaginatedResult(currentPage, pageSize);
     setPaginatedData(data);
-  }, [currentPage]);
+  }, [currentPage, getPaginatedResult, pageSize]);
 
   useEffect(() => {
     void fetchData();
   }, [fetchData]);
 
-  const changeCurrentPage = useCallback((page: number) => {
-    setSearchParams({
-      page: page.toString(),
-    });
-  }, []);
+  const changeCurrentPage = useCallback(
+    (page: number) => {
+      setSearchParams({
+        page: page.toString(),
+      });
+    },
+    [setSearchParams]
+  );
 
   return (
     <main
