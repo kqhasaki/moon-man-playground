@@ -1,15 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+# ❤ A website just for fun
 
-This project has been created using **webpack-cli**, you can now run
+This website uses serval open APIs including rick-and-morty API, elden-ring API, marvel API and so on to build a website for stuff that I enjoy.
 
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+Visit [my playground](https://fun.louisk.xyz) for fun!
