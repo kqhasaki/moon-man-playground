@@ -19,10 +19,12 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/eslint": "^8",
+    "@types/file-loader": "^5.0.1",
     "@types/node": "^20.3.2",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@types/webpack": "^5.28.1",
+    "@types/webpack-env": "^1.18.1",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "@webpack-cli/generators": "^3.0.7",

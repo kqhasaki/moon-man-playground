@@ -2,6 +2,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { EldenRingThemeProvider } from "./components/elden-ring/ThemeProvider";
 import { RickAndMortyThemeProvider } from "./components/rick-and-morty/ThemeProvider";
+import Layout from "./pages/common/Layout";
 import ArmorGallery from "./pages/elden-ring/ArmorGallery";
 import BossGallery from "./pages/elden-ring/BossGallery";
 import WeaponGallery from "./pages/elden-ring/WeaponGallery";
@@ -17,7 +18,9 @@ export default createBrowserRouter([
     path: "/rick-and-morty/characters",
     element: (
       <RickAndMortyThemeProvider>
-        <CharacterGallery />
+        <Layout>
+          <CharacterGallery />
+        </Layout>
       </RickAndMortyThemeProvider>
     ),
   },
@@ -25,7 +28,9 @@ export default createBrowserRouter([
     path: "/rick-and-morty/locations",
     element: (
       <RickAndMortyThemeProvider>
-        <LocationGallery />
+        <Layout>
+          <LocationGallery />
+        </Layout>
       </RickAndMortyThemeProvider>
     ),
   },
@@ -33,7 +38,9 @@ export default createBrowserRouter([
     path: "/elden-ring/weapons",
     element: (
       <EldenRingThemeProvider>
-        <WeaponGallery />
+        <Layout>
+          <WeaponGallery />
+        </Layout>
       </EldenRingThemeProvider>
     ),
   },
@@ -41,7 +48,9 @@ export default createBrowserRouter([
     path: "/elden-ring/armors",
     element: (
       <EldenRingThemeProvider>
-        <ArmorGallery />
+        <Layout>
+          <ArmorGallery />
+        </Layout>
       </EldenRingThemeProvider>
     ),
   },
@@ -49,7 +58,9 @@ export default createBrowserRouter([
     path: "/elden-ring/bosses",
     element: (
       <EldenRingThemeProvider>
-        <BossGallery />
+        <Layout>
+          <BossGallery />
+        </Layout>
       </EldenRingThemeProvider>
     ),
   },

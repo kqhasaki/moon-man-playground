@@ -68,7 +68,6 @@ export function PaginatedGallery<T, S>({
           <div
             style={{
               display: "flex",
-              maxWidth: 2560,
               margin: "auto",
               flexFlow: "row wrap",
               padding: "40px 30px",

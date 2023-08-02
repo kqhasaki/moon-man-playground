@@ -21,8 +21,6 @@ export function EldenRingThemeProvider({
         styles={{
           "html, body": {
             boxSizing: "border-box",
-            margin: 0,
-            padding: 0,
             height: "100%",
             width: "100%",
 
@@ -30,7 +28,10 @@ export function EldenRingThemeProvider({
             lineHeight: 1.15,
           },
           "*, *:before, *:after": {
+            margin: 0,
+            padding: 0,
             boxSizing: "inherit",
+            listStyle: "none",
           },
           body: {
             background: theme.palette.background.default,
@@ -39,17 +40,6 @@ export function EldenRingThemeProvider({
             // scrollable elements to be scrolled without the whole page moving (even if they don't
             // preventDefault on scroll events).
             overscrollBehavior: "none",
-          },
-          "#root": {
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            position: "relative",
-            flex: "1 1 100%",
-            outline: "none",
-            overflow: "hidden",
-            zIndex: 0,
           },
         }}
       />

@@ -19,7 +19,14 @@
     "allowJs": false,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ]
   },
-  "include": ["./**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "./**/*.ts",
+    "src/**/*.tsx"
+  ]
 }
