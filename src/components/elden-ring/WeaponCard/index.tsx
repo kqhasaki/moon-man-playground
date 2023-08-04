@@ -18,7 +18,7 @@ const useStyles = makeStyles()((theme) => ({
       textAlign: "center",
       marginTop: 24,
       marginBottom: 20,
-      color: theme.palette.text.gold,
+      color: theme.palette.text.highlight,
       fontSize: 25,
     },
     border: `1px solid ${theme.palette.divider}`,

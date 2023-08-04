@@ -2,27 +2,33 @@ import { ReactElement, ReactNode, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CSSObject } from "tss-react";
 
+import { Theme } from "../../components/common/theme";
 import { makeStyles as makeEldenRingStyles } from "../../components/elden-ring/theme";
 import { makeStyles as makeRickAndMortyStyles } from "../../components/rick-and-morty/theme";
 import eldenRingThumbnail from "../../resources/elden-ring-thumbnail.jpg";
 import rickAndMortyThumbnail from "../../resources/rick-and-morty-thumbnail.jpeg";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const commonStyles: (theme: any) => Record<string, CSSObject> = (theme) => ({
+const commonStyles: (theme: Theme) => Record<string, CSSObject> = (theme) => ({
   pageWrapper: {
     display: "flex",
     width: "100%",
     height: "100vh",
   },
   navbar: {
+    zIndex: 99,
     height: "100%",
-    minWidth: 300,
-    maxWidth: 360,
+    width: 400,
     background: theme.palette.background.paper,
     borderRight: `1px solid ${theme.palette.divider}`,
+    [theme.breakpoints.sm]: {
+      position: "absolute",
+      width: "100%",
+    },
   },
   content: {
     height: "100%",
+    width: "100%",
     overflow: "auto",
   },
   navItem: {
@@ -37,7 +43,7 @@ const commonStyles: (theme: any) => Record<string, CSSObject> = (theme) => ({
       transition: "200ms",
     },
     "&:hover": {
-      background: theme.palette.background.default,
+      background: theme.palette.background.primary,
       "& img": {
         filter: "brightness(70%)",
       },
@@ -65,7 +71,7 @@ const commonStyles: (theme: any) => Record<string, CSSObject> = (theme) => ({
     height: "0.8rem",
     width: "0.8rem",
     zIndex: 10,
-    background: theme.palette.background.default,
+    background: theme.palette.background.primary,
     borderRadius: "50%",
   },
 });

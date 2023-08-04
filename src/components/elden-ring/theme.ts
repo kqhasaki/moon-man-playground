@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { createMakeAndWithStyles } from "tss-react";
 
+import { Theme } from "../common/theme";
+
 export function useTheme() {
   const [isDark, setIsDark] = useState<boolean>(
     window.matchMedia &&
@@ -22,37 +24,42 @@ export function useTheme() {
   return theme;
 }
 
-const darkTheme = {
+const breakpoints = {
+  sm: "@media (max-width:400px)",
+  md: "@media (max-width:1000px)",
+  lg: "@media (max-width:1440px)",
+  xl: "@media (min-width:1440px)",
+};
+
+const darkTheme: Theme = {
+  breakpoints,
   palette: {
     background: {
       paper: "rgb(37, 36, 32)",
-      primary: "rgb(40, 40, 36)",
-      default: "rgba(30, 28, 22)",
-      secondary: "rgba(50, 50, 50)",
+      primary: "rgba(30, 28, 22)",
+      secondary: "rgba(30, 30, 30)",
     },
     text: {
-      default: "rgba(245, 245, 245)",
       primary: "rgba(245, 245, 245)",
       secondary: "rgba(187, 187, 188)",
-      gold: "rgba(180, 136, 82)",
+      highlight: "rgba(180, 136, 82)",
     },
     divider: "rgba(119, 102, 68)",
   },
 };
 
-const brightTheme = {
+const brightTheme: Theme = {
+  breakpoints,
   palette: {
     background: {
       paper: "rgba(255, 255, 255)",
-      primary: "rgba(240, 240, 240)",
-      default: "rgba(245, 245, 245)",
-      secondary: "rgba(230, 230, 230)",
+      primary: "rgba(245, 245, 245)",
+      secondary: "rgba(100, 100, 200)",
     },
     text: {
-      default: "rgba(30, 30, 30)",
       primary: "rgba(30, 30, 30)",
       secondary: "rgba(45, 45, 45)",
-      gold: "rgba(180, 136, 82)",
+      highlight: "rgba(180, 136, 82)",
     },
     divider: "rgba(220, 220, 220)",
   },

@@ -29,8 +29,8 @@ export function RickAndMortyThemeProvider({
             listStyle: "none",
           },
           body: {
-            background: theme.palette.background.default,
-            color: theme.palette.text.default,
+            background: theme.palette.background.primary,
+            color: theme.palette.text.primary,
 
             // Prevent scroll "bouncing" since the app workspace is not scrollable. Allows individual
             // scrollable elements to be scrolled without the whole page moving (even if they don't
