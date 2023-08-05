@@ -6,20 +6,33 @@ import { makeStyles } from "../theme";
 
 const useStyles = makeStyles()((theme) => ({
   cardWrapper: {
-    borderRadius: 10,
-    width: 620,
-    height: 240,
+    [theme.breakpoints.sm]: {
+      height: 150,
+      fontSize: 14,
+    },
+    [theme.breakpoints.md]: {
+      width: "100%",
+    },
+    width: 660,
+    height: 200,
     background: theme.palette.background.paper,
     overflow: "hidden",
     display: "flex",
   },
   descWrapper: {
+    width: "100%",
     padding: 16,
+    [theme.breakpoints.sm]: {
+      padding: 8,
+    },
     overflowX: "hidden",
     overflowY: "auto",
   },
   characterName: {
-    fontSize: 25,
+    [theme.breakpoints.sm]: {
+      fontSize: 18,
+    },
+    fontSize: 24,
     fontWeight: "bold",
   },
   characterStatus: {

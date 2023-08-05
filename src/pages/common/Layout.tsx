@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useMemo } from "react";
+import { ReactElement, ReactNode, useCallback, useMemo, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CSSObject } from "tss-react";
 
@@ -14,6 +14,7 @@ const commonStyles: (theme: Theme) => Record<string, CSSObject> = (theme) => ({
     display: "flex",
     width: "100%",
     height: "100vh",
+    position: "relative",
   },
   navbar: {
     zIndex: 99,
@@ -24,9 +25,27 @@ const commonStyles: (theme: Theme) => Record<string, CSSObject> = (theme) => ({
     [theme.breakpoints.sm]: {
       position: "absolute",
       width: "100%",
+      transform: "translateX(-100%)",
+    },
+  },
+  navbarToggler: {
+    height: 80,
+    width: "100%",
+    position: "absolute",
+    zIndex: 98,
+    top: 0,
+    left: 0,
+    boxShadow: `0px 0px 8px ${theme.palette.background.primary}`,
+    background: theme.palette.background.paper,
+    display: "none",
+    [theme.breakpoints.sm]: {
+      display: "block",
     },
   },
   content: {
+    [theme.breakpoints.sm]: {
+      paddingTop: 80,
+    },
     height: "100%",
     width: "100%",
     overflow: "auto",
@@ -83,7 +102,6 @@ type LayoutPropsType = {
   children: ReactNode;
 };
 
-console.log(rickAndMortyThumbnail);
 const routeItems: {
   path: string;
   image: string;
@@ -106,6 +124,8 @@ export default function Layout({ children }: LayoutPropsType): ReactElement {
   const { classes: rickAndMortyClasses } = useRickAndMortyStyles();
   const location = useLocation();
   const navigate = useNavigate();
+  const navbarToggler = useRef<HTMLDivElement>(null);
+  const navbar = useRef<HTMLElement>(null);
 
   const classes = useMemo(() => {
     const { pathname } = location;
@@ -115,15 +135,36 @@ export default function Layout({ children }: LayoutPropsType): ReactElement {
     return eldenRingClasses;
   }, [eldenRingClasses, rickAndMortyClasses, location]);
 
+  const navigatePage = useCallback(
+    (path: string) => {
+      if (navbarToggler.current?.style.display !== "none" && navbar.current) {
+        navbar.current.style.transform = "translateX(-100%)";
+      }
+      navigate(path);
+    },
+    [navigate]
+  );
+
+  const openNavbarToggler = useCallback(() => {
+    if (navbar.current) {
+      navbar.current.style.transform = "none";
+    }
+  }, []);
+
   return (
     <main className={classes.pageWrapper}>
-      <section className={classes.navbar}>
+      <div
+        onClick={openNavbarToggler}
+        className={classes.navbarToggler}
+        ref={navbarToggler}
+      ></div>
+      <section ref={navbar} className={classes.navbar}>
         <ul>
           {routeItems.map((item) => (
             <li
               className={classes.navItem}
               key={item.name}
-              onClick={() => navigate(item.path)}
+              onClick={() => navigatePage(item.path)}
             >
               <div className={classes.navPic}>
                 <img src={item.image} alt={item.image} />

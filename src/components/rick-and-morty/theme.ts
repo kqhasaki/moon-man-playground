@@ -3,10 +3,10 @@ import { createMakeAndWithStyles } from "tss-react";
 import { Theme } from "../common/theme";
 
 const breakpoints = {
-  sm: "@media (max-width:500px)",
-  md: "@media (max-width:1000px)",
-  lg: "@media (max-width:1440px)",
-  xl: "@media (min-width:1440px)",
+  sm: "@media screen and (max-width:500px)",
+  md: "@media screen and (max-width:1000px)",
+  lg: "@media screen and (max-width:1440px)",
+  xl: "@media screen and (min-width:1440px)",
 };
 
 export function useTheme(): Theme {

@@ -1,5 +1,13 @@
 import { Paginator } from "@kqhasaki/birdperson";
-import { ReactElement, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  ReactElement,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useSearchParams } from "react-router-dom";
 
 export type PaginatedGalleryPropsType<T, S> = {
@@ -10,6 +18,7 @@ export type PaginatedGalleryPropsType<T, S> = {
   getDataFromPaginatedResult: (paginatedResult: T) => S[];
   CardComponent: (props: { data: S }) => ReactElement;
   getCardKey?: (data: S) => string | number;
+  className?: string;
 };
 
 export function PaginatedGallery<T, S>({
@@ -20,9 +29,11 @@ export function PaginatedGallery<T, S>({
   CardComponent,
   getDataFromPaginatedResult,
   getCardKey,
+  className,
 }: PaginatedGalleryPropsType<T, S>): ReactElement {
   const [paginatedData, setPaginatedData] = useState<T>();
   const [searchParams, setSearchParams] = useSearchParams();
+  const mainWrapper = useRef<HTMLElement>(null);
 
   const currentPage = useMemo(() => {
     const page = searchParams.get("page");
@@ -32,6 +43,10 @@ export function PaginatedGallery<T, S>({
       return parseInt(page);
     }
   }, [searchParams, initialPage]);
+
+  useLayoutEffect(() => {
+    mainWrapper.current!.scrollTop = 0;
+  }, [currentPage]);
 
   const fetchData = useCallback(async () => {
     const data = await getPaginatedResult(currentPage, pageSize);
@@ -53,29 +68,18 @@ export function PaginatedGallery<T, S>({
 
   return (
     <main
+      ref={mainWrapper}
+      className={className}
       style={{
         height: "100%",
         width: "100%",
-        minHeight: "500px",
-        minWidth: "500px",
         overflowY: "auto",
         overflowX: "hidden",
-        paddingBottom: "60px",
       }}
     >
       {paginatedData ? (
         <>
-          <div
-            style={{
-              display: "flex",
-              margin: "auto",
-              flexFlow: "row wrap",
-              padding: "40px 30px",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 20,
-            }}
-          >
+          <div className="paginated-content">
             {getDataFromPaginatedResult(paginatedData).map((data, idx) => (
               <CardComponent key={getCardKey?.(data) ?? idx} data={data} />
             ))}

@@ -7,8 +7,27 @@ import {
 import { PaginatedResult } from "../../api/rick-and-morty/types";
 import { PaginatedGallery } from "../../components/common/PaginatedGallery";
 import { CharacterCard } from "../../components/rick-and-morty/CharacterCard";
+import { makeStyles } from "../../components/rick-and-morty/theme";
+
+const useStyles = makeStyles()((theme) => ({
+  layout: {
+    padding: 20,
+    [theme.breakpoints.md]: {
+      padding: 0,
+    },
+    "& .paginated-content": {
+      display: "flex",
+      flexFlow: "row wrap",
+      gap: 12,
+      marginBottom: 20,
+      justifyContent: "center",
+    },
+  },
+}));
 
 export default function CharacterGallery(): ReactElement {
+  const { classes } = useStyles();
+
   return (
     <>
       <PaginatedGallery
@@ -21,6 +40,7 @@ export default function CharacterGallery(): ReactElement {
         }
         getPaginatedResult={getPaginatedCharacters}
         getTotalPage={(_, result) => Math.floor(result.info.pages)}
+        className={classes.layout}
       />
     </>
   );
